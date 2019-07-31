@@ -1,3 +1,9 @@
+provider "google" {
+  credentials = var.gcp_creds
+  project     = "hashi-lab"
+  region      = "us-central1"
+}
+
 resource "google_compute_instance" "instance" {
   name         = "jmartinson-delete-me"
   machine_type = "n1-standard-1"
