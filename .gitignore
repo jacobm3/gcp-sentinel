@@ -8,4 +8,7 @@
 # .tfvars files
 *.tfvars
 *log
-
+mock*
+run-*
+*gz
+*bak
