@@ -36,3 +36,5 @@ resource "google_compute_instance" "instance" {
     scopes = ["userinfo-email", "compute-ro", "storage-ro"]
   }
 }
+
+# queue from commit
