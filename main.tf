@@ -9,7 +9,14 @@ resource "google_compute_instance" "instance" {
   machine_type = "n1-standard-1"
   zone         = "us-central1-a"
 
-  tags = ["foo", "bar"]
+  #tags = ["foo", "bar"]
+
+  tags = {
+    Name = "Jenkins Demo Build Bucket"
+    owner = "jmartinson@hashicorp.com"
+    TTL = "72"
+  }
+
 
   boot_disk {
     initialize_params {
