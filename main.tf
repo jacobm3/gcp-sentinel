@@ -11,7 +11,7 @@ resource "google_compute_instance" "instance" {
 
   #tags = ["foo", "bar"]
 
-  labels {
+  labels = {
     env = "default"
   }
 
