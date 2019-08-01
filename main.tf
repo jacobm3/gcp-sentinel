@@ -11,10 +11,8 @@ resource "google_compute_instance" "instance" {
 
   #tags = ["foo", "bar"]
 
-  tags = {
-    Name = "Jenkins Demo Build Bucket"
-    owner = "jmartinson@hashicorp.com"
-    TTL = "72"
+  labels {
+    env = "default"
   }
 
 
