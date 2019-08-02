@@ -11,9 +11,6 @@ resource "google_compute_instance" "instance" {
 
   labels = {
     env   = "default"
-    owner = "jmartinson-at-hashicorp-com"
-    ttl   = "77400"
-    name  = "jmartinson-delete-me"
   }
 
 
