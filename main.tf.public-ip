@@ -11,7 +11,7 @@ resource "google_compute_instance" "instance" {
 
   labels = {
     env   = "default"
-    owner = "jmartinson-at-hashicorp.com"
+    owner = "jmartinson@hashicorp.com"
     ttl   = "77400"
     name  = "jmartinson-delete-me"
   }
@@ -29,7 +29,9 @@ resource "google_compute_instance" "instance" {
 
   network_interface {
     network = "default"
-
+    access_config {
+      // Ephemeral IP
+    }
   }
 
   metadata = {
