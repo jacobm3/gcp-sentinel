@@ -11,10 +11,11 @@ resource "google_compute_instance" "instance" {
 
   #tags = ["foo", "bar"]
 
+/*
   labels = {
     env = "default"
   }
-
+*/
 
   boot_disk {
     initialize_params {
