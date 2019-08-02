@@ -9,11 +9,11 @@ resource "google_compute_instance" "instance" {
   machine_type = "n1-standard-1"
   zone         = "us-central1-a"
 
-  #tags = ["foo", "bar"]
-
-
   labels = {
     env = "default"
+    owner = "jmartinson@hashicorp.com"
+    ttl = "77400"
+    name = "jmartinson-delete-me"
   }
 
 
