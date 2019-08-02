@@ -10,10 +10,7 @@ resource "google_compute_instance" "instance" {
   zone         = "us-central1-a"
 
   labels = {
-    env = "default"
-    owner = "jmartinson@hashicorp.com"
-    ttl = "77400"
-    name = "jmartinson-delete-me"
+    env   = "default"
   }
 
 

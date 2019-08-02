@@ -1,0 +1,39 @@
+# This policy prevents a user from applying a public IP address to 
+# a GCP compute instance by including an "access_config" block on
+# a network_interface.
+#
+# We do this with a length check on network_interface[*].access_config
+#
+# Zero length passes, non-zero length fails.
+#
+# Ref: https://www.terraform.io/docs/providers/google/r/compute_instance.html#access_config
+# 
+# TODO: 
+# There are other ways to attach a public ip via google_network_address, and 
+# possibly others.
+
+import "tfplan"
+
+# Return list of compute instances in the plan
+get_compute_instances = func() {
+    compute_instances = []
+    for tfplan.module_paths as path {
+        compute_instances += values(tfplan.module(path).resources.google_compute_instance) else []
+    }
+    return compute_instances
+}
+
+compute_instances = get_compute_instances()
+
+# Rule blocking any non-zero access_configs
+block_access_config = rule {
+  all compute_instances as _, instances {
+    all instances as _, instance {
+      (length(instance.applied.network_interface[0].access_config) else 0) == 0
+    }
+  }
+}
+
+main = rule {
+  (block_access_config) else true
+ }
