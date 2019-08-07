@@ -5,7 +5,7 @@ provider "google" {
 }
 
 resource "google_compute_instance" "instance" {
-  name         = "jmartinson-delete-me"
+  name         = "jmartinson-delete-me-new"
   machine_type = "n1-standard-1"
   zone         = "us-central1-a"
 
