@@ -5,7 +5,7 @@ provider "google" {
 }
 
 resource "google_compute_instance" "instance" {
-  name         = "jmartinson-delete-me-new"
+  name         = "jmartinson-delete-me"
   machine_type = "n1-standard-1"
   zone         = "us-central1-a"
 
@@ -14,6 +14,7 @@ resource "google_compute_instance" "instance" {
     owner = "jmartinson-at-hashicorp-com"
     ttl   = "77400"
     name  = "jmartinson-delete-me"
+    newtag = "asdf"
   }
 
 
