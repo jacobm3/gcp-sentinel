@@ -9,6 +9,14 @@ resource "google_compute_instance" "instance" {
   machine_type = "n1-standard-1"
   zone         = "us-central1-a"
 
+  labels = {
+    env   = "default"
+    owner = "jmartinson-at-hashicorp-com"
+    ttl   = "77400"
+    name  = "jmartinson-delete-me"
+  }
+
+
   boot_disk {
     initialize_params {
       image = "debian-cloud/debian-9"
